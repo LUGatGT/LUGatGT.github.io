@@ -58,7 +58,7 @@
                 },
             };
 
-            var pizzaThisWeek = function() {
+            var pizza_this_week = function() {
                 var week_ms = 1000 * 60 * 60 * 24 * 7;
                 var magic = 1475718137348;
                 var now = Date.now();
@@ -71,7 +71,7 @@
                 var big = document.getElementsByClassName("answer")[0];
                 var detail = document.getElementsByClassName("description")[0];
 
-                var isPizza = pizzaThisWeek();
+                var isPizza = pizza_this_week();
                 big.innerHTML = text[isPizza].big;
                 detail.innerHTML = text[isPizza].detail;
                 document.body.style.backgroundColor = text[isPizza].color;
@@ -81,19 +81,14 @@
     </head>
     <body>
         <div class="splash">
-        <h1 class="answer">NO</h1>
-        <p class="description">
-            There is no pizza this week,
-            <br/>
-            but you should show up anyway!
-            <br/>
-        </p>
-        <p class="ad">
-            <br/>
-            <a href="http://lugatgt.org/">
-                Wednesdays @ 7:00 PM in Klaus 1456
-            </a>
-        </p>
+            <h1 class="answer"></h1>
+            <p class="description"></p>
+            <p class="ad">
+                <br/>
+                <a href="http://lugatgt.org/">
+                    Wednesdays @ 7:00 PM in Klaus 1456
+                </a>
+            </p>
         </div>
     </body>
 </html>
