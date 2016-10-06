@@ -4,8 +4,96 @@
         <meta charset="utf-8" />
         <link rel="shortcut icon" type="image/png" href="./pizza-favicon.png">
         <title>Pizza @ LUG?</title>
+        <style>
+            body {
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: 0px;
+            }
+
+            .splash {
+                text-align: center;
+                vertical-align: middle;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .splash h1 {
+                margin-top: -10vw;
+                margin-bottom: 10px;
+                font-size: 25vw;
+                font-family: monospace;
+            }
+
+            .splash p {
+                font-family: monospace;
+                font-size: 2vw;
+                margin: 0px;
+            }
+
+            .splash a {
+                color: #3a3a3a;
+            }
+        </style>
+        <script>
+        (function() {
+            "use strict";
+
+            var text = {
+                true: {
+                    big: "YES",
+                    detail: "Why aren't you there <b>right now</b>?",
+                    color: "#59cc63",
+                },
+                false: {
+                    big: "NO",
+                    detail: "There is no pizza this week,<br/>but you should show up anyway!",
+                    color: "#bf2d2d",
+                },
+            };
+
+            var pizzaThisWeek = function() {
+                var week_ms = 1000 * 60 * 60 * 24 * 7;
+                var magic = 1475718137348;
+                var now = Date.now();
+                var weeks_since = (now - magic) / week_ms;
+                var is_odd_week = (Math.floor(weeks_since) % 2) === 1;
+                return is_odd_week;
+            };
+
+            window.onload = function() {
+                var big = document.getElementsByClassName("answer")[0];
+                var detail = document.getElementsByClassName("description")[0];
+
+                var isPizza = pizzaThisWeek();
+                big.innerHTML = text[isPizza].big;
+                detail.innerHTML = text[isPizza].detail;
+                document.body.style.backgroundColor = text[isPizza].color;
+            };
+        })();
+        </script>
     </head>
     <body>
-        Hello World
+        <div class="splash">
+        <h1 class="answer">NO</h1>
+        <p class="description">
+            There is no pizza this week,
+            <br/>
+            but you should show up anyway!
+            <br/>
+        </p>
+        <p class="ad">
+            <br/>
+            <a href="http://lugatgt.org/">
+                Wednesdays @ 7:00 PM in Klaus 1456
+            </a>
+        </p>
+        </div>
     </body>
 </html>
