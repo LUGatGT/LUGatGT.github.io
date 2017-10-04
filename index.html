@@ -63,7 +63,7 @@
                 var magic = 1476322937348;
                 var now = Date.now();
                 var weeks_since = (now - magic) / week_ms;
-                var is_odd_week = (Math.floor(weeks_since) % 2) === 1;
+                var is_odd_week = (Math.floor(weeks_since) % 2) !== 1;
                 return is_odd_week;
             };
 
